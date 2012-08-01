@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <style type="text/css">
+            body, span {
+                margin: 0px;
+                padding: 0px;
+                text-align: right;
+            }
+            span {
+                line-height: 40px;
+                font-family: Arial;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            span:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <span id="link">Who is online: <span id="count">?</span> members</span>
+        <script type="text/javascript">
+            var socket = io.connect('/');
+            socket.on('count-update', function (data) {
+                document.getElementById('count').innerHTML = data.count;
+            });
+            
+            var username = location.search.replace(/^.*?\=/, '');
+            socket.emit('user-joined', { name: username });
+            
+            document.getElementById('link').onclick = function(event) {
+                var x = event.screenX-200;
+                var y = event.screenX-500;
+                var popup = window.open("/online-list", "online-user-list","left="+x+",top="+y+",width=400,height=500,status=0,toolbar=0,resizable=false");
+            }
+        </script>
+    </body>
+</html>
