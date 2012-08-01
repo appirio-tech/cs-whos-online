@@ -1,11 +1,9 @@
-Online-js
-==========
+Who's Online?
+=============
 
 Pluggable online user counter, deployable straight on Heroku.
 
 This is an entry for [a CloudSpokes challenge](http://www.cloudspokes.com/challenges/1578).
-
-Live presentation: http://cloudspokes-mock.herokuapp.com/?user=atimb
 
 ## Features
 
@@ -33,7 +31,7 @@ To use this online user counter on your website, follow these steps:
 ## Run locally
 
 * Install necessary node.js libraries with `npm install`
-* Launch the web server with `node ./server.js`
+* Launch the web server with `node ./app.js`
 
 ## License
 
